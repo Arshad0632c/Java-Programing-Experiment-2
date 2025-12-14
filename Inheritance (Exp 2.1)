@@ -1,0 +1,113 @@
+SOURCE CODE:
+
+package Exp_2_2;
+
+public class Employee {
+	private int id;
+	private String name;
+	private String email;
+	private double salary;
+	
+	public Employee(int id,String name,String email,double salary)
+	{
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.salary=salary;
+	}
+	
+	public int getId()
+	{
+		return id;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public double getSalary()
+	{
+		return salary;
+	}
+	public void raiseSalary(double percent)
+	{
+		System.out.print("Raise salary: ");
+		System.out.println(salary + ((salary * percent)/100));
+	}
+	public String toString()
+	{
+		return "Employee Details ==> Id: "+id+", Name: "+name+", Email: "+email+", salary of the employee: "+salary;
+	}
+}
+
+class Manager extends Employee {
+	
+	private String dept;
+	private int teamSize;
+	private double bonus;
+	private String designation;
+	
+	public Manager(int id,String name,String email,double salary,String dept,int teamSize,double bonus,String designation)
+	{
+		super(id,name,email,salary);
+		
+		this.dept=dept;
+		this.teamSize=teamSize;
+		this.bonus=bonus;
+		this.designation=designation;
+	}
+	public String getDept()
+	{
+		return dept;
+	}
+	public int getTeamSize()
+	{
+		return teamSize;
+	}
+	public double getBonus()
+	{
+		return bonus;
+	}
+	public String getDesignation()
+	{
+		return designation;
+	}
+	public void conductMeeting()
+	{
+		System.out.println("The Meeting is conduct on before today Evening");
+	}
+	public String toString()
+	{
+		return "Manager ["+super.toString()+"]\nDept: "+dept+"\nTeamSize: "+teamSize+"\nBonus: "+bonus+"\nDesignation: "+designation;
+	}
+}
+//Main class
+package Exp_2_2;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		Manager f = new Manager(329,"Falih","falih3261@gmail.com",50000,"Salesing",4,10000,"MD");
+		
+		System.out.println(f);
+		System.out.println();
+		
+		f.raiseSalary(20);
+		f.conductMeeting();
+		
+	}
+
+}
+
+OUTPUT:
+Manager [Employee Details ==> Id: 329, Name: Falih, Email: falih3261@gmail.com, salary of the employee: 50000.0]
+Dept: Salesing
+TeamSize: 4
+Bonus: 10000.0
+Designation: MD
+
+Raise salary: 60000.0
+The Meeting is conduct on before today Evening
